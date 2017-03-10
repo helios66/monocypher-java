@@ -3,4 +3,4 @@ A mono-alphabetic cypher originally written in Java by the guys at http://www.sa
 If you can write this same cypher in your language of choice, please do so and open a pull request, some other shameless copier of code will find it useful.
 That's all and thank you for reading.
 
-#updated
+##Updated to cater for numbers and a few special characters
