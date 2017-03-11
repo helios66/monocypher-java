@@ -36,14 +36,14 @@ public class Cypher {
         } 
     }
     
-    //@todo optimize using maps
+    //@Todo optimize using maps
     public static String encrypt(String s) {
         //try to remove some special characters from the string as this cypher is not equipped for symbol   
         char c[] = new char[(s.length())];
         for (int i = 0; i < s.length(); i++) {
             c[i] = forwardMap.get(s.charAt(i));
         }
-        return (new String(c));//+">"+generateSpecialCharacterPadding(initial);
+        return (new String(c));
     }
 
     //@todo optimize using maps
