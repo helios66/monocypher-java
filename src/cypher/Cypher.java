@@ -5,6 +5,8 @@
  */
 package cypher;
 
+import java.util.HashMap;
+
 /**
  *
  * @author fdamilola
@@ -22,35 +24,33 @@ public class Cypher {
         '-' , '_' , ':' , ',', '[' ,']', '+' , '.' , '^', '*' , '@'};
     
     
+    public static HashMap<Character, Character> forwardMap = new HashMap<> ();
+    public static HashMap<Character, Character> reverseMap = new HashMap<> ();
+    
+    
+    static {
+        forwardMap = new HashMap<>();
+        for (int i = 0; i < p.length; i++) {
+            forwardMap.put(p[i], ch[i]);
+            reverseMap.put(ch[i], p[i]);
+        } 
+    }
+    
     //@todo optimize using maps
     public static String encrypt(String s) {
         //try to remove some special characters from the string as this cypher is not equipped for symbol   
         char c[] = new char[(s.length())];
-        
         for (int i = 0; i < s.length(); i++) {
-            for (int j = 0; j < p.length; j++) {
-                if (p[j] == s.charAt(i)) {
-                    c[i] = ch[j];
-                    break;
-                }
-            }
+            c[i] = forwardMap.get(s.charAt(i));
         }
         return (new String(c));//+">"+generateSpecialCharacterPadding(initial);
     }
 
     //@todo optimize using maps
     public static String decrypt(String s) {
-        //String[] parts = s.split("\\>");
-        //String ins = parts[1];
-        //s = parts[0];
         char p1[] = new char[(s.length())];
         for (int i = 0; i < s.length(); i++) {
-            for (int j = 0; j < ch.length; j++) {
-                if (ch[j] == s.charAt(i)) {
-                    p1[i] = p[j];
-                    break;
-                }
-            }
+            p1[i] = reverseMap.get(s.charAt(i));
         }
         return (new String(p1));
     }
