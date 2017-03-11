@@ -10,3 +10,5 @@ Modified version of [Monocypher](https://github.com/joeolaoye/monocypher)
 [CoffeeScript](https://github.com/helios66/monocypher-coffeescript-js)
 
 [JavaScript](https://github.com/helios66/monocypher-coffeescript-js)
+
+[Swift](https://github.com/helios66/monocypher-swift)
